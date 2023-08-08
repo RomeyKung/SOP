@@ -1,6 +1,7 @@
 package com.example.lab3.controller;
 
 public class Customer {
+
     private String ID;
     private String name;
     private boolean sex;

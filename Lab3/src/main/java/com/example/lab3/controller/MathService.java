@@ -15,14 +15,12 @@ public class MathService {
         return String.valueOf(a-b);
     }
 
-    @GetMapping(path = "/multiply")
-    @ResponseBody
+    @RequestMapping(value = "/multiply")
     public String multiply(@RequestParam double num1, @RequestParam double num2){
         return String.valueOf(num1*num2);
     }
 
-    @GetMapping(path = "/divide")
-    @ResponseBody
+    @RequestMapping(value ="/divide")
     public String divide(@RequestParam double num1,@RequestParam double num2){
         return String.valueOf(num1/num2);
     }

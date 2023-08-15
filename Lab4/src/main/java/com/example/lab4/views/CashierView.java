@@ -22,7 +22,7 @@ public class CashierView extends VerticalLayout {
 
         TextField b100 = new TextField();
         b100.setPrefixComponent(new Span("$"));
-                                                                                                                                                                    
+
 
         TextField b20 = new TextField();
         b20.setPrefixComponent(new Span("$"));

@@ -66,7 +66,7 @@ public class CustomerController {
         }
         return false;
     }
-    @RequestMapping(value = "/addCustomer")
+    @PostMapping(value = "/addCustomer")
     public boolean  addCustomer(@RequestParam String ID, @RequestParam String n, @RequestParam String s, @RequestParam int a){
         this.customers.add(new Customer(ID, n , s, a));
         return true;

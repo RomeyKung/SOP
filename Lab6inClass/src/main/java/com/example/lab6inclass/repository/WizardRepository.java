@@ -11,4 +11,5 @@ import java.util.ArrayList;
 public  interface WizardRepository extends MongoRepository<Wizard, String> {
     @Query(value = "{name: '?0'}")
     public Wizard getWizardByName(String name);
+
 }

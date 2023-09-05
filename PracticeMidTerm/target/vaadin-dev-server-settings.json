@@ -1,0 +1,17 @@
+{
+  "frontendFolder": "B:/Work/Code/KMITL/Third Year/SOP/PracticeMidTerm/./frontend",
+  "themeFolder": "themes",
+  "themeResourceFolder": "B:/Work/Code/KMITL/Third Year/SOP/PracticeMidTerm/./frontend/generated/jar-resources",
+  "staticOutput": "B:/Work/Code/KMITL/Third Year/SOP/PracticeMidTerm/target/classes/META-INF/VAADIN/webapp/VAADIN/static",
+  "generatedFolder": "generated",
+  "statsOutput": "B:\\Work\\Code\\KMITL\\Third Year\\SOP\\PracticeMidTerm\\target\\classes\\META-INF\\VAADIN\\config",
+  "frontendBundleOutput": "B:\\Work\\Code\\KMITL\\Third Year\\SOP\\PracticeMidTerm\\target\\classes\\META-INF\\VAADIN\\webapp",
+  "devBundleOutput": "B:/Work/Code/KMITL/Third Year/SOP/PracticeMidTerm/src/main/dev-bundle/webapp",
+  "devBundleStatsOutput": "B:/Work/Code/KMITL/Third Year/SOP/PracticeMidTerm/src/main/dev-bundle/config",
+  "jarResourcesFolder": "B:/Work/Code/KMITL/Third Year/SOP/PracticeMidTerm/./frontend/generated/jar-resources",
+  "themeName": "",
+  "clientServiceWorkerSource": "B:\\Work\\Code\\KMITL\\Third Year\\SOP\\PracticeMidTerm\\target\\sw.ts",
+  "pwaEnabled": false,
+  "offlineEnabled": false,
+  "offlinePath": "'offline.html'"
+}

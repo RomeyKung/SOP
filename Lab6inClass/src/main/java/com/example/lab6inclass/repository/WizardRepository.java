@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 @Repository
 public  interface WizardRepository extends MongoRepository<Wizard, String> {
-    @Query(value = "{name: '?0'}")
-    public Wizard getWizardByName(String name);
+    @Query(value = "{_id: '?0'}")
+    public Wizard getWizardByID(String id);
 
 }

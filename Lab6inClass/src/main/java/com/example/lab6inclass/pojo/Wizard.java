@@ -11,13 +11,24 @@ public class Wizard {
     private String _id;
     private String sex;
     private String name;
+    private String position;
+    private int money;
     private String school;
     private String house;
-    private int money;
-    private String position;
 
-    public Wizard(){}
-    public Wizard(String _id, String sex, String name, String school, String house, int money, String position) {
+
+    public Wizard() {}
+
+//    public Wizard(String name, String sex, int money, String position, String school, String house) {
+//        this.sex = sex;
+//        this.name = name;
+//        this.school = school;
+//        this.house = house;
+//        this.money = money;
+//        this.position = position;
+//    }
+
+    public Wizard(String _id, String name, String sex, int money, String position, String school, String house) {
         this._id = _id;
         this.sex = sex;
         this.name = name;

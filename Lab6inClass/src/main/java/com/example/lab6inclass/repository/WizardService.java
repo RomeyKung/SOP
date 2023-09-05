@@ -20,10 +20,18 @@ public class WizardService  {
         return repository.findAll();
     }
 
-    public Wizard findByName(String name){
-        return  repository.getWizardByName(name);
+    public Wizard findByID(String id){
+        return  repository.getWizardByID(id);
     }
 
-    public void addWizard(){}
+    public Wizard addWizard(Wizard wizard){ return repository.save(wizard); }
+
+    public Wizard updateWizard(Wizard wizard){ return repository.save(wizard); }
+
+    public boolean deleteWizard(String id){
+        Wizard wizard = findByID(id);
+        repository.delete(wizard);
+        return true;
+    }
 
 }

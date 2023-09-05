@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>PracticeMidTerm</artifactId>
+    <artifactId>Lab6inClass</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>PracticeMidTerm</name>
-    <description>PracticeMidTerm</description>
+    <name>Lab6inClass</name>
+    <description>Lab6inClass</description>
     <properties>
         <java.version>17</java.version>
         <vaadin.version>24.1.7</vaadin.version>
@@ -21,6 +21,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -49,6 +53,10 @@
             <groupId>org.springframework.amqp</groupId>
             <artifactId>spring-rabbit-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
     <dependencyManagement>

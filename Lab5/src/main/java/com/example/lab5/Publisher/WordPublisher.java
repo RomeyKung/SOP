@@ -4,6 +4,7 @@ import com.example.lab5.Consumer.Sentence;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,13 +14,13 @@ import java.util.ArrayList;
 public class WordPublisher {
     @Autowired
     private RabbitTemplate rabbitTemplate;
-    private Word words;
+    protected Word words;
     public WordPublisher(){
         words = new Word();
     }
 
 
-    @RequestMapping(value = "/addBad/{word}")
+    @PostMapping(value = "/addBad/{word}")
     public ArrayList<String> addBadWord(@PathVariable("word") String s) {
         words.badWords.add(s);
         return words.badWords;
@@ -36,7 +37,7 @@ public class WordPublisher {
 
     ;
 
-    @RequestMapping(value = "/addGood/{word}")
+    @PostMapping(value = "/addGood/{word}")
     public ArrayList<String> addGoodWord(@PathVariable("word") String s) {
         words.goodWords.add(s);
         return words.goodWords;
@@ -51,7 +52,7 @@ public class WordPublisher {
 
     }
 
-    @RequestMapping(value = "/proof/{sentence}")
+    @PostMapping(value = "/proof/{sentence}")
     public String proofSentence(@PathVariable("sentence") String s) {
 
         boolean good = false;
@@ -72,13 +73,13 @@ public class WordPublisher {
             System.out.println("good and bad na");
             return "Found good and bad";
         } else if (good) {
-            rabbitTemplate.convertAndSend("Direct", "GoodWordQueue", s);
+            rabbitTemplate.convertAndSend("Direct", "good", s);
             System.out.println("good na");
             return "Found good";
 
 
         } else if (bad) {
-            rabbitTemplate.convertAndSend("Direct", "BadWordQueue", s);
+            rabbitTemplate.convertAndSend("Direct", "bad", s);
             System.out.println("bad na");
             return "Found bad";
 

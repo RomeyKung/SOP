@@ -1,13 +1,13 @@
-package com.example.practicemidterm;
+package com.example.lab6inclass;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PracticeMidTermApplication {
+public class Lab6inClassApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PracticeMidTermApplication.class, args);
+        SpringApplication.run(Lab6inClassApplication.class, args);
     }
 
 }

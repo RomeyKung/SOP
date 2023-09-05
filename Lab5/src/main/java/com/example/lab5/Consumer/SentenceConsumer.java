@@ -12,7 +12,7 @@ import java.util.Queue;
 public class SentenceConsumer {
     @Autowired
     private RabbitTemplate rabbitTemplate;
-    private Sentence sentences;
+    protected Sentence sentences;
 
     public SentenceConsumer(){
         sentences = new Sentence();
@@ -30,7 +30,7 @@ public class SentenceConsumer {
         System.out.println(sentences.goodSentences);
     }
 
-    @RabbitListener(queues = "GetQueue")
+        @RabbitListener(queues = "GetQueue")
     public Sentence getSentence(){
         return this.sentences;
     }

@@ -34,7 +34,7 @@ public class MyView2 extends HorizontalLayout {
         goodWord.addClickListener(event->{
             String str = addWord.getValue();
             ArrayList out = WebClient.create()
-                    .get()
+                    .post()
                     .uri("http://localhost:8080/addGood/"+str)
                     .retrieve()
                     .bodyToMono(ArrayList.class)
@@ -45,7 +45,7 @@ public class MyView2 extends HorizontalLayout {
         badWord.addClickListener(event->{
             String str = addWord.getValue();
             ArrayList out = WebClient.create()
-                    .get()
+                    .post()
                     .uri("http://localhost:8080/addBad/"+str)
                     .retrieve()
                     .bodyToMono(ArrayList.class)
@@ -73,7 +73,7 @@ public class MyView2 extends HorizontalLayout {
         addSentences.addClickListener(event->{
             String str = addSentence.getValue();
             String out = WebClient.create()
-                    .get()
+                    .post()
                     .uri("http://localhost:8080/proof/"+str)
                     .retrieve()
                     .bodyToMono(String.class)

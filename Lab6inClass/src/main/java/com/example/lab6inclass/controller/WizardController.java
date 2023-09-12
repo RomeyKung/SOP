@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+//จัดการ req-respond
 @RestController
 public class WizardController {
     @Autowired

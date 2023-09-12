@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+//จัดการ redis here
 @Service
 public class WizardService  {
     @Autowired

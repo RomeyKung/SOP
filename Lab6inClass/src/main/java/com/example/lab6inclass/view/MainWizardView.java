@@ -2,9 +2,9 @@ package com.example.lab6inclass.view;
 
 
 import com.example.lab6inclass.pojo.Wizard;
+import com.example.lab6inclass.pojo.Wizards;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
-import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -13,12 +13,12 @@ import com.vaadin.flow.component.radiobutton.RadioButtonGroup;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -33,10 +33,12 @@ public class MainWizardView extends VerticalLayout {
     private Button left, create, update, delete, right;
     private HorizontalLayout panel;
     private Notification notification;
-    private List<Wizard> wizardList;
+//    private List<Wizard> wizardList;
+    private Wizards wizardList;
     private int index;
 
     public MainWizardView() {
+        wizardList = new Wizards();
         fullName = new TextField();
         gender = new RadioButtonGroup<>("Gender", "m", "f");
         positions = new ComboBox();
@@ -72,7 +74,7 @@ public class MainWizardView extends VerticalLayout {
 
         this.right.addClickListener(event -> {
 
-            int legthList = wizardList.toArray().length;
+            int legthList = wizardList.getModel().toArray().length;
             if (index + 1 < legthList) {
                 index++;
                 setTextField(index);
@@ -105,7 +107,7 @@ public class MainWizardView extends VerticalLayout {
             Wizard wizardReturn = WebClient.create().post()
                     .uri("http://localhost:8081/addWizard").contentType(MediaType.APPLICATION_FORM_URLENCODED)
                     .body(BodyInserters.fromFormData(formData)).retrieve().bodyToMono(Wizard.class).block();
-            index = wizardList.toArray().length;
+            index = this.wizardList.getModel().toArray().length;
 //            index = wizardList.size();
             loadWizards();
             notification.setText( (wizardReturn != null ? "Created": "something went wrong") );
@@ -115,7 +117,7 @@ public class MainWizardView extends VerticalLayout {
 
         this.update.addClickListener(event -> {
             MultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
-            String id = wizardList.get(index).get_id();
+            String id = this.wizardList.getModel().get(index).get_id();
             String fullname = this.fullName.getValue();
             String sex = this.gender.getValue().toString();
             String position = this.positions.getValue().toString();
@@ -140,7 +142,7 @@ public class MainWizardView extends VerticalLayout {
         });
 
         this.delete.addClickListener(event ->{
-            String status = WebClient.create().post().uri("http://localhost:8081/deleteWizard/"+wizardList.get(index).get_id()).retrieve().bodyToMono(String.class).block();
+            String status = WebClient.create().post().uri("http://localhost:8081/deleteWizard/"+wizardList.getModel().get(index).get_id()).retrieve().bodyToMono(String.class).block();
             notification.setText((status.equals("something went wrong")) ? "something went wrong": status);
             notification.open();
             if(index-1 >= 0) {
@@ -152,16 +154,17 @@ public class MainWizardView extends VerticalLayout {
     }
 
     public void loadWizards() {
-        this.wizardList = WebClient.create().get()
+         List<Wizard> out = WebClient.create().get()
                 .uri("http://localhost:8081/wizards")
                 .retrieve().bodyToFlux(Wizard.class).collectList().block();
 //        System.out.println(wizardList);
+        this.wizardList.setModel((ArrayList<Wizard>) out);
         setTextField(index);
         
     }
 
     public void setTextField(int index) {
-        if(wizardList.isEmpty()){
+        if(this.wizardList.getModel().isEmpty()){
             this.fullName.clear();
             this.gender.clear();
             this.positions.clear();
@@ -169,12 +172,12 @@ public class MainWizardView extends VerticalLayout {
             this.schools.clear();
             this.houses.clear();
         }else{
-            this.fullName.setValue(wizardList.get(index).getName());
-            this.gender.setValue(wizardList.get(index).getSex());
-            this.positions.setValue(wizardList.get(index).getPosition());
-            this.dollars.setValue(wizardList.get(index).getMoney() + "");
-            this.schools.setValue(wizardList.get(index).getSchool());
-            this.houses.setValue(wizardList.get(index).getHouse());
+            this.fullName.setValue(this.wizardList.getModel().get(index).getName());
+            this.gender.setValue(this.wizardList.getModel().get(index).getSex());
+            this.positions.setValue(this.wizardList.getModel().get(index).getPosition());
+            this.dollars.setValue(this.wizardList.getModel().get(index).getMoney() + "");
+            this.schools.setValue(this.wizardList.getModel().get(index).getSchool());
+            this.houses.setValue(this.wizardList.getModel().get(index).getHouse());
         }
     }
 

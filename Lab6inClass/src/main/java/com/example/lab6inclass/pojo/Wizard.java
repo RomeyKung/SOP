@@ -4,9 +4,13 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
+
+//ทำ mapping schema
+//ถ้าต่อ database เมื่อไรให้ implement Serializable เลย
 @Data
 @Document("Wizard")
-public class Wizard {
+public class Wizard implements Serializable {
     @Id
     private String _id;
     private String sex;

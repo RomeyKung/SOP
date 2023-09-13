@@ -12,11 +12,11 @@ public class Product implements Serializable {
     @Id
     private String _id;
     private String productName;
-    private int productCost;
-    private int productProfit;
-    private int productPrice;
+    private double productCost;
+    private double productProfit;
+    private double productPrice;
     public Product(){}
-    public Product(String _id, String productName, int productCost, int productProfit, int productPrice){
+    public Product(String _id, String productName, double productCost, double productProfit, double productPrice){
         this._id = _id;
         this.productName = productName;
         this.productCost = productCost;

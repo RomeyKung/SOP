@@ -13,8 +13,6 @@ import com.vaadin.flow.router.Route;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,7 +33,6 @@ public class ProductView extends VerticalLayout {
     private Notification notification;
     private List<Product> products;
     private Product product;
-    private int index;
 
     public ProductView() {
 
@@ -57,8 +54,11 @@ public class ProductView extends VerticalLayout {
         //set
         this.pPrice.setEnabled(false);
         this.pList.addValueChangeListener(e -> {
-            this.product = WebClient.create().get().uri("http://localhost:8080/getProductByName/{name}", this.pList
-                    .getValue()).retrieve().bodyToMono(Product.class).block();
+            //set product ให้เป็นตัวที่หามาจาก pList
+            String productName = this.pList.getValue();
+            //ติดใน version > 17 นะไอสัส
+            //this.product = WebClient.create().get().uri("http://localhost:8080/getProductByName/{name}",productName).retrieve().bodyToMono(Product.class).block();
+            this.product = WebClient.create().get().uri("http://localhost:8080/getProductByName/"+productName).retrieve().bodyToMono(Product.class).block();
             if (this.product != null) {
                 this.pName.setValue(this.product.getProductName());
                 this.pCost.setValue(this.product.getProductCost());
@@ -87,6 +87,7 @@ public class ProductView extends VerticalLayout {
         });
 
         loadProduct();
+        clear();
 
     }
 
@@ -107,6 +108,7 @@ public class ProductView extends VerticalLayout {
         notification.setText(status ? "Added" : "something not found");
         notification.open();
         loadProduct();
+        clear();
     }
 
     public void updateProduct() {
@@ -118,15 +120,21 @@ public class ProductView extends VerticalLayout {
                 .retrieve().bodyToMono(boolean.class).block();
         notification.setText(status ? "Updated" : "something not found");
         notification.open();
+        clear();
         loadProduct();
     }
 
     public void delProduct() {
         getPrice();
-        boolean status = WebClient.create().post().uri("http://localhost:8080/deleteProduct").retrieve().bodyToMono(boolean.class).block();
+        Product newProduct = new Product(this.product.get_id(), this.pName.getValue(), this.pCost.getValue(), this.pProfit.getValue(), this.pPrice.getValue());
+        boolean status = WebClient.create().post().uri("http://localhost:8080/deleteProduct")
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(newProduct)
+                .retrieve().bodyToMono(boolean.class).block();
         notification.setText(status ? "Deleted" : "something not found");
         notification.open();
         loadProduct();
+        clear();
     }
 
     public void clear() {
@@ -142,7 +150,6 @@ public class ProductView extends VerticalLayout {
     }
 
     public void loadProduct() {
-//        this.products = WebClient.create().get().uri("http://localhost:8080/getProductAll").retrieve().bodyToMono(ArrayList.class).block();
         this.products = WebClient.create()
                 .get()
                 .uri("http://localhost:8080/getProductAll")
@@ -150,13 +157,13 @@ public class ProductView extends VerticalLayout {
                 .bodyToMono(new ParameterizedTypeReference<List<Product>>() {
                 })
                 .block();
+        updateComboBox();
+
+    }
+    public void updateComboBox() {
         List<String> productNames = this.products.stream()
                 .map(Product::getProductName)
                 .collect(Collectors.toList());
         this.pList.setItems(productNames);
-//        clear();
-
     }
-
-
 }

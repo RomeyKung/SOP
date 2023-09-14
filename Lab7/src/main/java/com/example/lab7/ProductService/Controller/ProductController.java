@@ -37,9 +37,9 @@ public class ProductController {
         return (boolean) rabbitTemplate.convertSendAndReceive("ProductExchange", "delete", product);
 
     }
-    @RequestMapping(value = "/getProductByName/{name}")
-    public Product getProductByName(@PathVariable String name){
-        return (Product) rabbitTemplate.convertSendAndReceive("ProductExchange", "getname", name);
+    @RequestMapping(value = "/getProductByName/{productName}")
+    public Product getProductByName(@PathVariable String productName){
+        return (Product) rabbitTemplate.convertSendAndReceive("ProductExchange", "getname", productName);
     }
     @RequestMapping(value = "/getProductAll")
     public List<Product> getProductAll(){

@@ -3,21 +3,23 @@ package com.example.lab7.ProductService.Repository;
 import com.example.lab7.POJO.Product;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+//value = database ใน redis
 @Service
 public class ProductService {
     @Autowired
     private ProductRepository repository;
 
 
-//    @RabbitListener(queues = "")
     public ProductService(ProductRepository productRepository){
         this.repository = productRepository;
     }
 
+    @CacheEvict(value = "Product", allEntries = true)
     @RabbitListener(queues = "AddProductQueue")
     public boolean addProduct(Product product){
         try{
@@ -28,6 +30,7 @@ public class ProductService {
         }
     }
 
+    @CachePut(value = "Product")
     @RabbitListener(queues = "UpdateProductQueue")
     public boolean updateProduct(Product product){
         try{
@@ -38,6 +41,7 @@ public class ProductService {
         }
     }
 
+    @CacheEvict(value = "Product", allEntries = true)
     @RabbitListener(queues = "DeleteProductQueue")
     public boolean deleteProduct(Product product){
         try{
@@ -58,7 +62,7 @@ public class ProductService {
     }
 
     @RabbitListener(queues = "GetNameProductQueue")
-    public Product getProductByName(String name){
-        return repository.findByName(name);
+    public Product getProductByName(String productName){
+        return repository.findByName(productName);
     }
 }

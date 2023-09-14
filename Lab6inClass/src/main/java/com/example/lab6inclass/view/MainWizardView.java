@@ -114,7 +114,6 @@ public class MainWizardView extends VerticalLayout {
             notification.open();
         });
 
-
         this.update.addClickListener(event -> {
             MultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
             String id = this.wizardList.getModel().get(index).get_id();
@@ -136,9 +135,9 @@ public class MainWizardView extends VerticalLayout {
                     .uri("http://localhost:8081/updateWizard").contentType(MediaType.APPLICATION_FORM_URLENCODED)
                     .body(BodyInserters.fromFormData(formData)).retrieve().bodyToMono(Wizard.class).block();
 
-            loadWizards();
             notification.setText( (wizardReturn != null ? "Updated": "something went wrong") );
             notification.open();
+            loadWizards();
         });
 
         this.delete.addClickListener(event ->{

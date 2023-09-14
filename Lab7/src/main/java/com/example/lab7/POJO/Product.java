@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
-
+//implement Serializable เพื่อ mapping ง่ายขึ้น
 @Data
 @Document("Product")
 public class Product implements Serializable {

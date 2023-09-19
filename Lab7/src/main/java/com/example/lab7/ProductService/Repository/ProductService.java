@@ -5,9 +5,10 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
+
 //value = database ใน redis
 @Service
 public class ProductService {
@@ -52,6 +53,7 @@ public class ProductService {
         }
     }
 
+    @Cacheable(value="Product", key="'Product'")
     @RabbitListener(queues = "GetAllProductQueue")
     public List<Product> getAllProduct(){
         try{

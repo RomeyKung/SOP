@@ -114,11 +114,11 @@ public class ProductView extends VerticalLayout {
     public void updateProduct() {
         getPrice();
         Product newProduct = new Product(this.product.get_id(), this.pName.getValue(), this.pCost.getValue(), this.pProfit.getValue(), this.pPrice.getValue());
-        boolean status = WebClient.create().post().uri("http://localhost:8080/updateProduct")
+        List<Product> status = WebClient.create().post().uri("http://localhost:8080/updateProduct")
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(newProduct)
-                .retrieve().bodyToMono(boolean.class).block();
-        notification.setText(status ? "Updated" : "something not found");
+                .retrieve().bodyToMono(List.class).block();
+        notification.setText("Updated");
         notification.open();
         clear();
         loadProduct();

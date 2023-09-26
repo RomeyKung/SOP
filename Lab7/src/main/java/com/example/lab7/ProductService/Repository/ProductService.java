@@ -20,7 +20,7 @@ public class ProductService {
         this.repository = productRepository;
     }
 
-    @CacheEvict(value = "Product", allEntries = true)
+    @CacheEvict(value = "Product", key="'Product'")
     @RabbitListener(queues = "AddProductQueue")
     public boolean addProduct(Product product){
         try{
@@ -31,18 +31,18 @@ public class ProductService {
         }
     }
 
-    @CachePut(value = "Product")
+    @CachePut(value = "Product", key="'Product'")
     @RabbitListener(queues = "UpdateProductQueue")
-    public boolean updateProduct(Product product){
+    public List<Product> updateProduct(Product product){
         try{
             this.repository.save(product);
-            return true;
+            return this.repository.findAll();
         }catch (Exception e){
-            return false;
+            return null;
         }
     }
 
-    @CacheEvict(value = "Product", allEntries = true)
+    @CacheEvict(value = "Product", key="'Product'")
     @RabbitListener(queues = "DeleteProductQueue")
     public boolean deleteProduct(Product product){
         try{
@@ -63,6 +63,7 @@ public class ProductService {
         }
     }
 
+//    @Cacheable(value="Product", key="'Product'")
     @RabbitListener(queues = "GetNameProductQueue")
     public Product getProductByName(String productName){
         return repository.findByName(productName);

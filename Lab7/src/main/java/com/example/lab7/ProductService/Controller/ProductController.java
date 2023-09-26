@@ -28,8 +28,8 @@ public class ProductController {
 
     }
     @RequestMapping(value = "/updateProduct", method = POST)
-    public boolean updateProduct(@RequestBody Product product){
-        return (boolean) rabbitTemplate.convertSendAndReceive("ProductExchange", "update", product);
+    public List<Product> updateProduct(@RequestBody Product product){
+        return (List<Product>) rabbitTemplate.convertSendAndReceive("ProductExchange", "update", product);
 
     }
     @RequestMapping(value = "/deleteProduct", method = POST)

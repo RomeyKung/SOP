@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="381e4b28-0c21-4007-9a7a-07c6918541ee" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Lab8ApiGateWay/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8ApiGateWay/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8ApiGateWay/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8ApiGateWay/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8ApiGateWay/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8ApiGateWay/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8ApiGateWay/src/main/java/com/example/apigateway/ApiGateWayApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8ApiGateWay/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8ApiGateWay/src/test/java/com/example/apigateway/ApiGateWayApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8DiscoveryServer/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8DiscoveryServer/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8DiscoveryServer/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8DiscoveryServer/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8DiscoveryServer/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8DiscoveryServer/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8DiscoveryServer/src/main/java/com/example/lab8gateway/DiscoveryServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8DiscoveryServer/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8DiscoveryServer/src/test/java/com/example/lab8gateway/ServiceDiscoveryTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8ProductService/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8ProductService/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8ProductService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8ProductService/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8ProductService/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8ProductService/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8ProductService/src/main/java/com/example/lab8/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8ProductService/src/main/java/com/example/lab8/rest/ProductsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8ProductService/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8ProductService/src/test/java/com/example/lab8/ProductServiceTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sop64070125.zip" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2Vuv3nuinUwB3NuHutcaJjmW3kE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "B:/Work/Code/KMITL/Third Year/SOP/Lab7",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="381e4b28-0c21-4007-9a7a-07c6918541ee" name="Changes" comment="" />
+      <created>1695698599705</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1695698599705</updated>
+      <workItem from="1695698617456" duration="217000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

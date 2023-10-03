@@ -1,5 +1,6 @@
 package com.example.lab8.rest;
 
+
 import com.example.lab8.command.CreateProductCommand;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.beans.factory.annotation.Autowired;

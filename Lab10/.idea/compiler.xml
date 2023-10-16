@@ -12,11 +12,6 @@
         <module name="Lab8" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="ApiGateWay" target="17" />
-      <module name="Lab8" target="17" />
-      <module name="Lab8Gateway" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

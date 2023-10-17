@@ -1,6 +1,7 @@
 package com.example.lab8.query;
 
-import com.example.core.ProductReservedEvent;
+import com.example.core.events.ProductReservationCancelledEvent;
+import com.example.core.events.ProductReservedEvent;
 import com.example.lab8.core.data.ProductEntity;
 import com.example.lab8.core.data.ProductRepository;
 import com.example.lab8.core.events.ProductCreatedEvent;
@@ -29,6 +30,13 @@ public class ProductEventHandler {
     public void on(ProductReservedEvent event){
         ProductEntity productEntity = productRepository.findByProductId(event.getProductId());
         productEntity.setQuantity(productEntity.getQuantity() - event.getQuantity());
+        productRepository.save(productEntity);
+    }
+
+    @EventHandler
+    public void on(ProductReservationCancelledEvent event){
+        ProductEntity productEntity = productRepository.findByProductId(event.getProductId());
+        productEntity.setQuantity(productEntity.getQuantity()+event.getQuantity());
         productRepository.save(productEntity);
     }
 }

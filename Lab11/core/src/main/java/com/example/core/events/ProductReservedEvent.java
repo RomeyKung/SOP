@@ -1,16 +1,14 @@
-package com.example.core;
+package com.example.core.events;
 
 import lombok.Builder;
 import lombok.Data;
-import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
-
-@Builder
 @Data
-public class ReserveProductCommand {
-    @TargetAggregateIdentifier
+@Builder
+public class ProductReservedEvent {
     private final String productId;
     private final int quantity;
     private final String orderId;
     private final String userId;
+    private final String reason;
 }

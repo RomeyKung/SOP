@@ -15,7 +15,7 @@ public class ProductQueryController {
     private final QueryGateway queryGateway;
 
     public ProductQueryController(QueryGateway queryGateway){
-        this.queryGateway =queryGateway;
+        this.queryGateway = queryGateway;
     }
 
     @GetMapping

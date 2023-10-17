@@ -1,6 +1,6 @@
-package com.example.paymentsservice;
+package com.example.paymentsservice.command;
 
-import com.example.core.prohect.PaymentProcessedEvent;
+import com.example.core.events.PaymentProcessedEvent;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;

@@ -1,4 +1,4 @@
-package com.example.paymentsservice;
+package com.example.paymentsservice.command;
 
 import lombok.Builder;
 import lombok.Data;

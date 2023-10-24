@@ -23,8 +23,6 @@ public class UserEventsHandler {
                 .userId(query.getUserId())
                 .paymentDetails(paymentDetails)
                 .build();
-
         return user;
-
     }
 }

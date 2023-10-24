@@ -24,7 +24,7 @@ public class UserEventsHandler {
                 .paymentDetails(paymentDetails)
                 .build();
 
-        return user
+        return user;
 
     }
 }
